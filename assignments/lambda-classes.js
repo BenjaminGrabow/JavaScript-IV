@@ -78,6 +78,11 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
+    graduate(student) {
+        if(student.grade >= 70) {
+            return `${this.name} reached a grade of 70 and is now ready to graduate !!!`
+        }
+    }
 }
 
 const gregor = new Student({
@@ -125,6 +130,7 @@ console.log(gregor.sprintChallenge("Javascript"));
 console.log(gregor.grade);
 console.log(berta.ratingForGrade(gregor));
 console.log(gregor.grade);
+console.log(gregor.graduate(gregor));
 // PROJECTMANAGER
 
 class ProjectManager extends Instructor {
@@ -166,9 +172,4 @@ const sabine = new ProjectManager({
 console.log(sabine.standUp("Bernd", "WebEu2"));
 console.log(claudia.debugsCode("Gregor", "VSC"));
 
-
-// STRETCH GOALS
-* Add a graduate method to a student.
-  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-    * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 
