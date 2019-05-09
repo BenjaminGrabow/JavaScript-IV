@@ -33,6 +33,11 @@ class Instructor extends Person {
     grade(student, subject) {
         return `{student.name} receives a perfect score on ${subject}`;
     }
+    ratingForGrade(student) {
+        const makeRating = Math.random();
+        const Rating = student.grade + makeRating;
+        return student.grade = Rating;
+    }
 }
 
 const gerald = new Instructor({
@@ -62,6 +67,7 @@ class Student extends Person {
         this.previousBackground = studentAttributes.previousBackground;
         this.className = studentAttributes.className;
         this.favSubjects = studentAttributes.favSubjects;
+        this.grade = studentAttributes.grade;
     }
     listsSubjects() {
         return this.favSubjects;
@@ -84,7 +90,8 @@ const gregor = new Student({
     catchPhrase: 'Your future is created by what you do today not tomorrow.',
     previousBackground: 'Economics',
     className: 'WebEu2',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 69.9
 });
 const bernd = new Student({
     age: 28,
@@ -96,7 +103,8 @@ const bernd = new Student({
     catchPhrase: 'Sometimes you win, sometimes you learn.',
     previousBackground: 'Musician',
     className: 'WebEu2',
-    favSubjects: ['SWIFT', 'CSS ']
+    favSubjects: ['SWIFT', 'CSS '],
+    grade: 55
 });
 const gustav = new Student({
     age: 32,
@@ -108,11 +116,15 @@ const gustav = new Student({
     catchPhrase: 'The only way to do great work is to love what you do.',
     previousBackground: 'cable worker',
     className: 'WebEu2',
-    favSubjects: ['CSS ', 'React ']
+    favSubjects: ['CSS ', 'React '],
+    grade: 86
 })
 console.log(gustav.listsSubjects());
 console.log(bernd.PRAssignment("CSS"));
-console.log(gregor.sprintChallenge("Javascript"))
+console.log(gregor.sprintChallenge("Javascript"));
+console.log(gregor.grade);
+console.log(berta.ratingForGrade(gregor));
+console.log(gregor.grade);
 // PROJECTMANAGER
 
 class ProjectManager extends Instructor {
@@ -153,4 +165,10 @@ const sabine = new ProjectManager({
 });
 console.log(sabine.standUp("Bernd", "WebEu2"));
 console.log(claudia.debugsCode("Gregor", "VSC"));
+
+
+// STRETCH GOALS
+* Add a graduate method to a student.
+  * This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+    * If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 
