@@ -6,7 +6,6 @@ class Person {
         this.location = personAttributes.location;
         this.gender = personAttributes.gender;
     }
-
     speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}.`
     }
@@ -129,6 +128,7 @@ class ProjectManager extends Instructor {
         return `${this.name} debugs ${student}'s code on ${subject}`;
     }
 }
+
 const claudia = new ProjectManager({
     age: 29,
     name: 'Claudia',
